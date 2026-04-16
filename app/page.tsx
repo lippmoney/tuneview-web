@@ -1,7 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import Problem from "@/components/sections/Problem";
 import HowItWorks from "@/components/sections/HowItWorks";
-import Proof from "@/components/sections/Proof";
+import ScanDemo from "@/components/sections/ScanDemo";
 import KBCounter from "@/components/sections/KBCounter";
 import Pricing from "@/components/sections/Pricing";
 import EarlyAccess from "@/components/sections/EarlyAccess";
@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <Problem />
       <HowItWorks />
-      <Proof />
+      <ScanDemo />
       <KBCounter />
       <Pricing />
       <EarlyAccess />

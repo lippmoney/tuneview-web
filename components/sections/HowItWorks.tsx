@@ -1,60 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import ScanAnimation from "./ScanAnimation";
-
-const UploadDecor = () => (
-  <div className="flex items-end gap-1 mb-4 h-10">
-    {[0.4, 0.7, 1.0, 0.6, 0.85].map((h, i) => (
-      <div
-        key={i}
-        className="flex-1 rounded-[1px]"
-        style={{
-          height: `${h * 40}px`,
-          background: `rgba(0,220,255,${0.25 + h * 0.4})`,
-        }}
-      />
-    ))}
-  </div>
-);
-
-const ResultsDecor = () => (
-  <div className="mb-4 flex items-center gap-2">
-    <span
-      className="w-2.5 h-2.5 rounded-full"
-      style={{ background: "#FF5050", boxShadow: "0 0 6px #FF5050" }}
-    />
-    <span className="font-mono text-[8px] tracking-widest text-red-400">
-      P1 · CRITICAL
-    </span>
-  </div>
-);
+import Image from "next/image";
 
 const steps = [
   {
     num: "01",
-    label: "// UPLOAD",
-    title: "Drop your HPTuners CSV",
-    body: "Export your datalog. Drop it in. Knock · LTFT · MAF · VE · Fuel Pressure · Spark.",
-    Decor: UploadDecor,
-    animate: null,
+    label: "// EXPORT",
+    title: "Export your log from HPTuners Scanner",
+    img: "/screenshots/step1_vcm_scanner.png",
+    caption: "VCM Scanner with live log — RPM, MAF, LTFT, knock, spark, fuel pressure all captured",
   },
   {
     num: "02",
-    label: "// ANALYZE",
-    title: "19 systems scanned in real time",
-    body: null,
-    Decor: null,
-    animate: true,
+    label: "// UPLOAD",
+    title: "Drop it in. Tell us about your build.",
+    img: "/screenshots/step2_upload_form.png",
+    caption: "Vehicle profile form — displacement, cam, injectors, forced induction, fuel type",
   },
   {
     num: "03",
     label: "// RESULTS",
-    title: "Exact revision steps",
-    body: "P1 through P4 — prioritized, specific, actionable. Table name. Navigation path. Magnitude of change.",
-    Decor: ResultsDecor,
-    animate: null,
+    title: "Get exact revision steps in 60 seconds",
+    img: "/screenshots/step3_scan_results.png",
+    caption: "19 systems scanned — findings prioritized P1 through P3 with table names and correction values",
   },
 ];
 
@@ -79,15 +48,8 @@ export default function HowItWorks() {
             </motion.h2>
           </div>
           <div className="flex flex-col items-start md:items-end gap-1">
-            {[
-              "19 systems scanned",
-              "85+ KB entries",
-              "Gen5 LT / LS · 6L80E",
-            ].map((m) => (
-              <span
-                key={m}
-                className="font-mono text-[8px] tracking-widest text-t3"
-              >
+            {["19 systems scanned", "85+ KB entries", "Gen5 LT / LS · 6L80E"].map((m) => (
+              <span key={m} className="font-mono text-[8px] tracking-widest text-t3">
                 {m}
               </span>
             ))}
@@ -103,71 +65,52 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="rounded-[2px] p-5"
+              className="rounded-[2px] overflow-hidden group transition-colors"
               style={{
                 background: "var(--panel)",
                 border: "1px solid var(--border)",
               }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,220,255,0.3)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+              }}
             >
-              <div className="flex items-center gap-2 mb-4">
-                <span className="font-mono text-[9px] tracking-widest text-t3">
-                  STEP
-                </span>
-                <span
-                  className="font-mono text-xs tracking-widest text-cyan"
-                >
-                  {step.num}
-                </span>
+              {/* Step number bar */}
+              <div
+                className="flex items-center gap-2 px-4 pt-4 pb-3"
+                style={{ borderBottom: "1px solid var(--border)" }}
+              >
+                <span className="font-mono text-[9px] tracking-widest text-t3">STEP</span>
+                <span className="font-mono text-xs tracking-widest text-cyan">{step.num}</span>
+                <span className="font-mono text-[9px] tracking-widest text-t3 ml-1">{step.label}</span>
               </div>
 
-              {step.Decor && <step.Decor />}
-              {step.animate && <ScanAnimation />}
+              {/* Screenshot */}
+              <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
+                <Image
+                  src={step.img}
+                  alt={step.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  style={{ objectFit: "cover" }}
+                  priority={i === 0}
+                />
+              </div>
 
-              <p className="font-mono text-[8px] tracking-widest text-cyan mt-4 mb-2">
-                {step.label}
-              </p>
-              <h3 className="font-display font-bold text-t1 text-lg mb-2 leading-snug">
-                {step.title}
-              </h3>
-              {step.body && (
-                <p className="font-mono text-[10px] leading-relaxed text-t2">
-                  {step.body}
+              {/* Title + caption */}
+              <div className="px-4 pt-3 pb-4">
+                <h3 className="font-display font-bold text-t1 text-base leading-snug mb-2">
+                  {step.title}
+                </h3>
+                <p className="font-mono text-[9px] leading-relaxed text-t3">
+                  {step.caption}
                 </p>
-              )}
+              </div>
             </motion.div>
           ))}
         </div>
-
-        {/* See a real scan — CASE_001 Dev Truck — 416ci Whipple */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          className="mt-8 flex flex-col items-start gap-1"
-        >
-          <span className="font-mono text-[8px] tracking-widest text-t3">
-            // CASE_001 — Dev Truck — 416ci Whipple
-          </span>
-          <Link
-            href="/cases/CASE_001"
-            className="rounded-[2px] px-5 py-2.5 font-mono text-xs tracking-widest text-cyan transition-colors hover:text-bg"
-            style={{
-              border: "1px solid var(--color-cyan)",
-              background: "transparent",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background =
-                "var(--color-cyan)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background =
-                "transparent";
-            }}
-          >
-            See a real scan →
-          </Link>
-        </motion.div>
       </div>
     </section>
   );
