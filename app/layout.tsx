@@ -3,6 +3,7 @@ import { Rajdhani, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KbTicker from "@/components/KbTicker";
 
 const rajdhani = Rajdhani({
   variable: "--font-rajdhani",
@@ -43,6 +44,7 @@ export default function RootLayout({
             backgroundSize: "48px 48px",
           }}
         />
+        <KbTicker />
         <Navbar />
         <main className="relative z-10">{children}</main>
         <Footer />
