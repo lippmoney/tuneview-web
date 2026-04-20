@@ -157,7 +157,7 @@ export default async function CasePage({
 
         {/* ── HEADER ─────────────────────────────────────────────── */}
         <header className="space-y-4">
-          <p className="font-mono text-[9px] tracking-widest text-cyan">
+          <p className="font-mono text-[11px] tracking-widest text-cyan">
             // CASE {row.case_id}
           </p>
 
@@ -167,7 +167,7 @@ export default async function CasePage({
                 {vehicleName || "Scan Report"}
               </h1>
               {engineFamily && (
-                <p className="font-mono text-[10px] tracking-widest text-t3 mt-1">
+                <p className="font-mono text-[12px] tracking-widest text-t3 mt-1">
                   {engineFamily}
                 </p>
               )}
@@ -182,7 +182,7 @@ export default async function CasePage({
                   border: "1px solid var(--border)",
                 }}
               >
-                <p className="font-mono text-[8px] tracking-widest text-t3">
+                <p className="font-mono text-[10px] tracking-widest text-t3">
                   CONFIDENCE
                 </p>
                 <p className="font-mono text-sm text-cyan leading-tight">
@@ -198,7 +198,7 @@ export default async function CasePage({
                   border: `1px solid ${sevColor(safetySeverity)}`,
                 }}
               >
-                <p className="font-mono text-[8px] tracking-widest text-t3">
+                <p className="font-mono text-[10px] tracking-widest text-t3">
                   SAFETY
                 </p>
                 <p
@@ -221,13 +221,13 @@ export default async function CasePage({
                 borderLeft: `2px solid ${sevColor(report.primary_issue.severity)}`,
               }}
             >
-              <p className="font-mono text-[8px] tracking-widest text-t3 mb-1">
+              <p className="font-mono text-[10px] tracking-widest text-t3 mb-1">
                 PRIMARY ISSUE
               </p>
               <p className="font-display font-bold text-t1 text-lg leading-snug">
                 {report.primary_issue.headline}
               </p>
-              <p className="font-mono text-[10px] leading-relaxed text-t2 mt-1">
+              <p className="font-mono text-[12px] leading-relaxed text-t2 mt-1">
                 {report.primary_issue.summary}
               </p>
             </div>
@@ -247,7 +247,7 @@ export default async function CasePage({
               className="w-2 h-2 rounded-full mt-0.5 flex-shrink-0"
               style={{ background: "#FFB400", boxShadow: "0 0 6px #FFB400" }}
             />
-            <p className="font-mono text-[10px] leading-relaxed text-t2">
+            <p className="font-mono text-[12px] leading-relaxed text-t2">
               <span className="text-t3 mr-1">WOT PULL:</span>
               {wotStatus === "Partial"
                 ? "Partial WOT detected — VE/VT revision steps are directional. Confirm with a full wide-open-throttle pull before committing changes."
@@ -259,7 +259,7 @@ export default async function CasePage({
         {/* ── SCAN MODULES ───────────────────────────────────────── */}
         {modules.length > 0 && (
           <section>
-            <p className="font-mono text-[9px] tracking-widest text-t3 mb-4">
+            <p className="font-mono text-[11px] tracking-widest text-t3 mb-4">
               // SCAN MODULES
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -276,11 +276,11 @@ export default async function CasePage({
                     }}
                   >
                     <div className="flex items-start justify-between gap-2 mb-1">
-                      <span className="font-mono text-[8px] tracking-widest text-t3 uppercase">
+                      <span className="font-mono text-[10px] tracking-widest text-t3 uppercase">
                         {mod.module.replace(/_/g, " ")}
                       </span>
                       <span
-                        className="font-mono text-[8px] tracking-widest uppercase"
+                        className="font-mono text-[10px] tracking-widest uppercase"
                         style={{ color }}
                       >
                         {mod.severity}
@@ -290,21 +290,21 @@ export default async function CasePage({
                       {mod.headline}
                     </p>
                     {mod.summary && (
-                      <p className="font-mono text-[9px] leading-relaxed text-t2 mt-1.5">
+                      <p className="font-mono text-[11px] leading-relaxed text-t2 mt-1.5">
                         {mod.summary}
                       </p>
                     )}
                     <div className="mt-2 flex items-center gap-4">
-                      <span className="font-mono text-[8px] text-t3">
+                      <span className="font-mono text-[10px] text-t3">
                         CONF {pct(mod.confidence)}
                       </span>
                       {mod.primary_candidate && (
-                        <span className="font-mono text-[8px] text-amber-400">
+                        <span className="font-mono text-[10px] text-amber-400">
                           PRIMARY
                         </span>
                       )}
                       {mod.actionable && !mod.primary_candidate && (
-                        <span className="font-mono text-[8px] text-cyan">
+                        <span className="font-mono text-[10px] text-cyan">
                           ACTIONABLE
                         </span>
                       )}
@@ -319,7 +319,7 @@ export default async function CasePage({
         {/* ── REVISION STEPS ─────────────────────────────────────── */}
         {steps.length > 0 && (
           <section>
-            <p className="font-mono text-[9px] tracking-widest text-t3 mb-4">
+            <p className="font-mono text-[11px] tracking-widest text-t3 mb-4">
               // TUNE STEPS
             </p>
             <div className="space-y-3">
@@ -339,7 +339,7 @@ export default async function CasePage({
                   >
                     <div className="flex items-center gap-3 mb-2">
                       <span
-                        className="font-mono text-[9px] tracking-widest px-2 py-0.5 rounded-[2px]"
+                        className="font-mono text-[11px] tracking-widest px-2 py-0.5 rounded-[2px]"
                         style={{
                           color: badge.color,
                           border: `1px solid ${badge.color}`,
@@ -348,7 +348,7 @@ export default async function CasePage({
                       >
                         {badge.label}
                       </span>
-                      <span className="font-mono text-[8px] tracking-widest text-t3 uppercase">
+                      <span className="font-mono text-[10px] tracking-widest text-t3 uppercase">
                         {step.system.replace(/_/g, " ")}
                       </span>
                     </div>
@@ -356,7 +356,7 @@ export default async function CasePage({
                       {step.action}
                     </p>
                     {step.detail && (
-                      <p className="font-mono text-[10px] leading-relaxed text-t2 mt-1.5">
+                      <p className="font-mono text-[12px] leading-relaxed text-t2 mt-1.5">
                         {step.detail}
                       </p>
                     )}
@@ -370,7 +370,7 @@ export default async function CasePage({
         {/* ── REPORT CARDS ───────────────────────────────────────── */}
         {cards.length > 0 && (
           <section>
-            <p className="font-mono text-[9px] tracking-widest text-t3 mb-4">
+            <p className="font-mono text-[11px] tracking-widest text-t3 mb-4">
               // REPORT CARDS
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -386,12 +386,12 @@ export default async function CasePage({
                     }}
                   >
                     <div className="flex items-start justify-between gap-2 mb-1">
-                      <span className="font-mono text-[8px] tracking-widest text-t3 uppercase">
+                      <span className="font-mono text-[10px] tracking-widest text-t3 uppercase">
                         {card.card_type.replace(/_/g, " ")}
                       </span>
                       {card.badge && (
                         <span
-                          className="font-mono text-[8px] tracking-widest"
+                          className="font-mono text-[10px] tracking-widest"
                           style={{ color }}
                         >
                           {card.badge}
@@ -402,7 +402,7 @@ export default async function CasePage({
                       {card.title}
                     </p>
                     {card.body && (
-                      <p className="font-mono text-[10px] leading-relaxed text-t2 mt-1.5">
+                      <p className="font-mono text-[12px] leading-relaxed text-t2 mt-1.5">
                         {card.body}
                       </p>
                     )}
@@ -420,7 +420,7 @@ export default async function CasePage({
         >
           <Link
             href="/"
-            className="font-mono text-[10px] tracking-widest text-t3 hover:text-cyan transition-colors"
+            className="font-mono text-[12px] tracking-widest text-t3 hover:text-cyan transition-colors"
           >
             ← tuneview.io
           </Link>
