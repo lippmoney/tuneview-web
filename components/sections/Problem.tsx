@@ -40,7 +40,7 @@ export default function Problem() {
     <section className="relative z-10 px-5 md:px-10 py-24">
       <div className="max-w-5xl mx-auto">
         {/* Label */}
-        <p className="font-mono text-[9px] tracking-widest text-cyan mb-5">
+        <p className="font-mono text-[11px] tracking-widest text-cyan mb-5">
           // The Problem
         </p>
 
@@ -75,7 +75,7 @@ export default function Problem() {
               }}
             >
               <p
-                className="font-mono text-[8px] tracking-widest mb-3"
+                className="font-mono text-[10px] tracking-widest mb-3"
                 style={{ color: card.accent }}
               >
                 {card.num}

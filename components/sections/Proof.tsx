@@ -46,7 +46,7 @@ export default function Proof() {
   return (
     <section className="relative z-10 px-5 md:px-10 py-24">
       <div className="max-w-5xl mx-auto">
-        <p className="font-mono text-[9px] tracking-widest text-cyan mb-4">
+        <p className="font-mono text-[11px] tracking-widest text-cyan mb-4">
           // Real Data · CASE_001
         </p>
         <motion.h2
@@ -58,7 +58,7 @@ export default function Proof() {
         >
           This is what your tune looks like.
         </motion.h2>
-        <p className="font-mono text-[10px] tracking-widest text-t3 mb-10">
+        <p className="font-mono text-[12px] tracking-widest text-t3 mb-10">
           2018 Silverado · L86 6.2L · 416ci Whipple · E85 · 6L80E
         </p>
 
@@ -84,7 +84,7 @@ export default function Proof() {
             <span className="font-display font-bold text-t1 text-base tracking-wide">
               <span className="text-t3">Tune</span>View
             </span>
-            <span className="font-mono text-[8px] tracking-widest text-t3">
+            <span className="font-mono text-[10px] tracking-widest text-t3">
               PRO TIER / 2026-04-14
             </span>
           </div>
@@ -101,7 +101,7 @@ export default function Proof() {
               B+
             </span>
             <div className="flex-1">
-              <p className="font-mono text-[8px] tracking-widest text-t3 mb-2">
+              <p className="font-mono text-[10px] tracking-widest text-t3 mb-2">
                 WEIGHTED GPA / 3.38 / 4.0
               </p>
               <div
@@ -142,7 +142,7 @@ export default function Proof() {
                     {g.label}
                   </p>
                   <p
-                    className={`font-mono text-[8px] tracking-widest ${g.italic ? "italic" : ""}`}
+                    className={`font-mono text-[10px] tracking-widest ${g.italic ? "italic" : ""}`}
                     style={{ color: g.color }}
                   >
                     {g.note}

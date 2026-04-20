@@ -93,7 +93,7 @@ export default function KBCounter() {
 
         {/* Header */}
         <div className="mb-12">
-          <p className="font-mono text-[9px] text-cyan tracking-[3px] mb-4">
+          <p className="font-mono text-[11px] text-cyan tracking-[3px] mb-4">
             // CALIBRATION KNOWLEDGE BASE
           </p>
           <h2 className="font-display font-bold text-t1 leading-tight mb-4"
@@ -101,7 +101,7 @@ export default function KBCounter() {
             The platform learns.<br />
             <span className="text-cyan">Here&apos;s the proof.</span>
           </h2>
-          <p className="font-mono text-[11px] text-t2 tracking-wide leading-relaxed max-w-xl">
+          <p className="font-mono text-[13px] text-t2 tracking-wide leading-relaxed max-w-xl">
             Every entry is sourced from real calibration data, forum expertise,
             and tuner outcomes. Bad tips get retired. Good ones get more confident.
             The numbers below are live — pulled from the database right now.
@@ -126,10 +126,10 @@ export default function KBCounter() {
               >
                 {visible && stats ? <AnimatedNumber target={s.value} /> : '—'}
               </div>
-              <div className="font-mono text-[9px] text-t2 tracking-[2px] uppercase">
+              <div className="font-mono text-[11px] text-t2 tracking-[2px] uppercase">
                 {s.label}
               </div>
-              <div className="font-mono text-[8px] text-t3 tracking-[1px]">
+              <div className="font-mono text-[10px] text-t3 tracking-[1px]">
                 {s.sub}
               </div>
             </div>
@@ -141,10 +141,10 @@ export default function KBCounter() {
           className="flex justify-between items-center px-6 py-3"
           style={{ background: 'var(--panel)', border: '1px solid var(--border)' }}
         >
-          <span className="font-mono text-[9px] text-t3 tracking-[2px]">
+          <span className="font-mono text-[11px] text-t3 tracking-[2px]">
             // LAST UPDATED
           </span>
-          <span className="font-mono text-[9px] text-t2 tracking-[1px]">
+          <span className="font-mono text-[11px] text-t2 tracking-[1px]">
             {lastUpdate}
           </span>
         </div>
@@ -158,7 +158,7 @@ export default function KBCounter() {
             borderLeft: '2px solid var(--amber)',
           }}
         >
-          <p className="font-mono text-[10px] text-t2 leading-relaxed tracking-wide">
+          <p className="font-mono text-[12px] text-t2 leading-relaxed tracking-wide">
             <span className="text-amber">// NOTE:</span>{' '}
             Tips with low helpfulness ratings are automatically retired.
             The active tip count above reflects only tips that have proven useful
