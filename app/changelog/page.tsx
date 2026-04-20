@@ -23,7 +23,7 @@ function TagPill({ tag }: { tag: ChangelogTag }) {
   const s = TAG_STYLE[tag];
   return (
     <span
-      className="font-mono text-[9px] tracking-widest uppercase px-2 py-0.5 rounded-[2px]"
+      className="font-mono text-[11px] tracking-widest uppercase px-2 py-0.5 rounded-[2px]"
       style={{ color: s.fg, background: s.bg, border: `1px solid ${s.border}` }}
     >
       {tag}
@@ -78,7 +78,7 @@ function SectionLabel({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-3 mb-3.5 mt-1">
       <span
-        className="font-mono text-[9px] tracking-widest uppercase whitespace-nowrap"
+        className="font-mono text-[11px] tracking-widest uppercase whitespace-nowrap"
         style={{ color: "rgba(0,220,255,0.35)" }}
       >
         {label}
@@ -95,7 +95,7 @@ export default function ChangelogPage() {
   return (
     <div className="min-h-screen pt-[80px] px-5 md:px-10">
       <div className="max-w-2xl mx-auto py-20">
-        <p className="font-mono text-[9px] tracking-widest text-cyan mb-5">
+        <p className="font-mono text-[11px] tracking-widest text-cyan mb-5">
           // Release Log
         </p>
         <h1 className="font-display font-bold text-t1 text-3xl md:text-5xl mb-5 leading-tight uppercase tracking-wider">
@@ -122,7 +122,7 @@ export default function ChangelogPage() {
                   v{entry.version}
                 </span>
                 <span
-                  className="font-mono text-[10px] tracking-widest uppercase"
+                  className="font-mono text-[12px] tracking-widest uppercase"
                   style={{ color: "rgba(0,220,255,0.4)" }}
                 >
                   {formatDate(entry.date)}

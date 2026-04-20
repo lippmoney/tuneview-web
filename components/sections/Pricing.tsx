@@ -2,8 +2,20 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
-const tiers = [
+const tiers: Array<{
+  name: string;
+  price: string;
+  unit: string;
+  desc: string;
+  features: ReactNode[];
+  cta: string;
+  ctaHref: string;
+  ctaStyle: string;
+  featured: boolean;
+  accent: string | null;
+}> = [
   {
     name: "DIY",
     price: "$19",
@@ -14,7 +26,9 @@ const tiers = [
       "Full report card",
       "P1–P4 revision steps",
       "Shareable result",
-      "Dragy linking",
+      <>
+        Dragy linking <span className="text-t3">(coming soon)</span>
+      </>,
     ],
     cta: "Get Early Access",
     ctaHref: "/#early-access",
@@ -67,7 +81,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="relative z-10 px-5 md:px-10 py-24">
       <div className="max-w-5xl mx-auto">
-        <p className="font-mono text-[9px] tracking-widest text-cyan mb-4">
+        <p className="font-mono text-[11px] tracking-widest text-cyan mb-4">
           // Pricing
         </p>
         <motion.h2
@@ -79,9 +93,9 @@ export default function Pricing() {
         >
           Start free. Scale when you&apos;re ready.
         </motion.h2>
-        <p className="font-mono text-[10px] tracking-widest text-t3 mb-12">
-          All tiers include full report card · shareable results · Dragy
-          integration
+        <p className="font-mono text-[12px] tracking-widest text-t2 mb-12">
+          All tiers include full report card · shareable results.{" "}
+          <span className="text-t3">Dragy integration arriving soon.</span>
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
@@ -102,25 +116,25 @@ export default function Pricing() {
               }}
             >
               <div className="p-5 flex-1">
-                <p className="font-mono text-[8px] tracking-widest text-t3 mb-3">
+                <p className="font-mono text-[10px] tracking-widest text-t3 mb-3">
                   {tier.name}
                 </p>
                 <div className="flex items-baseline gap-1 mb-3">
                   <span className="font-display font-bold text-t1 text-3xl">
                     {tier.price}
                   </span>
-                  <span className="font-mono text-[9px] text-t3">
+                  <span className="font-mono text-[11px] text-t3">
                     {tier.unit}
                   </span>
                 </div>
-                <p className="font-mono text-[10px] leading-relaxed text-t2 mb-5">
+                <p className="font-mono text-[12px] leading-relaxed text-t2 mb-5">
                   {tier.desc}
                 </p>
                 <ul className="flex flex-col gap-2">
                   {tier.features.map((f, fi) => (
                     <li
                       key={fi}
-                      className="flex items-start gap-2 font-mono text-[9px] tracking-wide text-t2"
+                      className="flex items-start gap-2 font-mono text-[11px] tracking-wide text-t2"
                     >
                       <span
                         className="mt-0.5 flex-shrink-0"
@@ -139,7 +153,7 @@ export default function Pricing() {
               <div className="p-5 pt-0">
                 <Link
                   href={tier.ctaHref}
-                  className={`block text-center font-mono text-[9px] tracking-widest px-4 py-3 rounded-[2px] transition-colors ${
+                  className={`block text-center font-mono text-[11px] tracking-widest px-4 py-3 rounded-[2px] transition-colors ${
                     tier.ctaStyle === "filled"
                       ? "bg-cyan text-bg hover:bg-cyan/90"
                       : tier.ctaStyle === "red"

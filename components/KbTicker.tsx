@@ -15,7 +15,10 @@ const REPEAT = 16; // 8 × 2 for the seamless -50% loop
 
 type Stats = { total: number; cats: number; families: number };
 
-const HARDCODED: Stats = { total: 343, cats: 32, families: 12 };
+// First-paint fallback used only until the Supabase fetch completes.
+// Values refreshed 2026-04-19 to match live DB state; bump these
+// periodically so a fetch-failure pass doesn't look stale.
+const HARDCODED: Stats = { total: 430, cats: 35, families: 14 };
 
 function TickerContent({ stats }: { stats: Stats }) {
   const prefix =
@@ -71,8 +74,11 @@ export default function KbTicker() {
         display: "flex",
         alignItems: "center",
         borderBottom: "1px solid rgba(0,220,255,0.1)",
-        position: "relative",
-        zIndex: 50,
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 60,
       }}
     >
       {/* Left fade */}

@@ -54,7 +54,7 @@ export default function EarlyAccess() {
       />
 
       <div className="relative max-w-xl w-full text-center">
-        <p className="font-mono text-[9px] tracking-widest text-cyan mb-4">
+        <p className="font-mono text-[11px] tracking-widest text-cyan mb-4">
           // Early Access · Limited Spots
         </p>
         <motion.h2
@@ -66,7 +66,7 @@ export default function EarlyAccess() {
         >
           Be first in line.
         </motion.h2>
-        <p className="font-mono text-[10px] leading-relaxed text-t2 mb-8 max-w-md mx-auto">
+        <p className="font-mono text-[12px] leading-relaxed text-t2 mb-8 max-w-md mx-auto">
           TuneView is in early access. Enter your email and we&apos;ll notify
           you when your tier opens.
         </p>
@@ -75,7 +75,7 @@ export default function EarlyAccess() {
           <motion.p
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="font-mono text-[11px] tracking-widest text-cyan py-4"
+            className="font-mono text-[13px] tracking-widest text-cyan py-4"
           >
             // you&apos;re on the list ✓
           </motion.p>
@@ -90,7 +90,7 @@ export default function EarlyAccess() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
-              className="flex-1 font-mono text-[11px] px-4 py-3 rounded-[2px] text-t1 placeholder:text-t3 outline-none transition-colors"
+              className="flex-1 font-mono text-[13px] px-4 py-3 rounded-[2px] text-t1 placeholder:text-t3 outline-none transition-colors"
               style={{
                 background: "var(--bg)",
                 border: "1px solid var(--border2)",
@@ -103,7 +103,7 @@ export default function EarlyAccess() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="font-mono text-[9px] tracking-widest text-bg bg-cyan hover:bg-cyan/90 disabled:opacity-50 px-6 py-3 rounded-[2px] transition-colors flex-shrink-0"
+              className="font-mono text-[11px] tracking-widest text-bg bg-cyan hover:bg-cyan/90 disabled:opacity-50 px-6 py-3 rounded-[2px] transition-colors flex-shrink-0"
             >
               {status === "loading" ? "..." : "NOTIFY ME"}
             </button>
@@ -111,12 +111,12 @@ export default function EarlyAccess() {
         )}
 
         {status === "error" && (
-          <p className="font-mono text-[9px] tracking-widest text-red-400 mt-2">
+          <p className="font-mono text-[11px] tracking-widest text-red-400 mt-2">
             {errMsg}
           </p>
         )}
 
-        <p className="font-mono text-[8px] tracking-widest text-t3 mt-5">
+        <p className="font-mono text-[10px] tracking-widest text-t3 mt-5">
           No spam. No credit card. Just a heads up when you&apos;re in.
         </p>
       </div>
